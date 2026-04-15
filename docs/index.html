@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EML → PDF (Simsteve7)</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>EML → PDF</h1>
+    <p>Sleep één of meerdere .eml-bestanden of kies via <em>Bestand kiezen</em>. De app draait volledig lokaal in je browser.</p>
+
+    <div class="controls">
+      <input id="fileinput" type="file" multiple accept=".eml" />
+      <label><input id="includeImages" type="checkbox" checked /> Inclusief inline afbeeldingen</label>
+      <label><input id="includeAttachments" type="checkbox" checked /> Voeg bijlagen toe als lijst (niet de inhoud)</label>
+      <label>Chronologische volgorde:
+        <select id="orderSelect">
+          <option value="oldest">Oudste eerst</option>
+          <option value="newest">Nieuwste eerst</option>
+        </select>
+      </label>
+      <button id="generateBtn">Genereer PDF</button>
+      <button id="clearBtn">Wis</button>
+    </div>
+
+    <div id="fileList" class="file-list"></div>
+
+    <div id="previewArea" class="preview-area" hidden>
+      <h2>Voorbeeld (samengevoegd)</h2>
+      <div id="mergedHtml" class="merged-html"></div>
+    </div>
+
+    <div class="notes">
+      <p>Deze pagina verwerkt EML-bestanden lokaal in je browser; er wordt niets geüpload.</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
